@@ -9,3 +9,4 @@ services:
     ports:
       - '80:1337'
     privileged: true
+#    restart: unless-stopped
