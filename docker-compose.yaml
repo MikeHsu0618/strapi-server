@@ -4,9 +4,31 @@ services:
     container_name: "strapi"
     build:
       context: .
-#    volumes:
-#      - .:/app
+    #    volumes:
+    #      - .:/app
     ports:
-      - '80:1337'
+      - '1337:1337'
     privileged: true
-#    restart: unless-stopped
+    restart: unless-stopped
+    networks:
+      - fullstack
+
+  shopping-project:
+    image: 'mikehsu0618/shopping-project'
+    ports:
+      - '80:80'
+    restart: unless-stopped
+    networks:
+      - fullstack
+
+  shopping-manager:
+    image: 'mikehsu0618/shopping-manager'
+    ports:
+      - '8000:80'
+    restart: unless-stopped
+    networks:
+      - fullstack
+
+networks:
+  fullstack:
+    driver: bridge
