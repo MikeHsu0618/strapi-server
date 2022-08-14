@@ -4,8 +4,6 @@ services:
     container_name: "strapi"
     build:
       context: .
-    #    volumes:
-    #      - .:/app
     ports:
       - '1337:1337'
     privileged: true
